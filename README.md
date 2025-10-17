@@ -1,30 +1,34 @@
-VulnScanner Full Bundle (C/C++ backend + Lua scripting + Qt frontend)
+# 🔍 VulnScannerFull
 
-Features:
-- Async TCP scanner using Boost.Asio
-- UDP probe + pcap sniffer skeleton (requires libpcap and elevated privileges)
-- NVD API integration stub via libcurl and local JSON cache
-- Lua bindings exposing scanning and CVE lookup functions
-- Scanner runner (runs Lua scripts embedding the scanner)
-- Qt frontend (simple) that runs Lua scripts and shows output
-- Example Lua scripts in scripts/
+**VulnScannerFull** is a modular vulnerability scanning suite that combines a **C++ backend**, **Lua scripting engine**, and a **Qt-based frontend GUI** for interactive vulnerability detection and reporting.
 
-Build prerequisites (Linux/Debian/Kali):
-  sudo apt update
-  sudo apt install -y build-essential cmake libboost-all-dev qtbase5-dev libpcap-dev libcurl4-openssl-dev liblua5.3-dev lua5.3
+It’s designed for educational and authorized security testing — providing an extendable environment where users can write **Lua scripts** to perform network scans, capture packets, and fetch vulnerability data from NVD (CVE database).
 
-Build:
-  mkdir build && cd build
-  cmake ..
-  cmake --build . --parallel
+---
 
-Run controller (example):
-  ./backend/scanner_runner ../scripts/example_scan.lua 127.0.0.1
+## 🧩 Architecture Overview
 
-Run GUI (example):
-  ./frontend/vuln_gui   # from build/frontend or adjust path
+### 1. Backend (`/backend`)
+The backend is written in modern **C++17** and powered by:
+- **Boost.Asio** — for asynchronous TCP/UDP scanning.
+- **libpcap** — for packet sniffing.
+- **libcurl** — for NVD (CVE) API integration.
+- **Lua 5.3** — for script execution and extending functionality.
 
-Notes:
-- pcap/sniffing requires elevated privileges (sudo) on Linux/macOS; on Windows, run as Administrator and install NPCAP.
-- NVD integration requires an API key for live queries; the code includes a stub that can be extended.
-- Use only on authorized targets.
+#### Core Features:
+- Asynchronous **TCP port scanner**.
+- **UDP probe and sniffer** using libpcap.
+- **Lua bindings** for scripting and automation.
+- **NVD API stub** for vulnerability lookups.
+- **Scanner Runner** CLI (`scanner_runner`) to execute Lua scripts.
+
+### 2. Lua Scripting (`/scripts`)
+Lua scripts define how scans are performed and how results are handled.  
+They can:
+- Launch scans via `scanner.tcp_scan()` or `scanner.udp_probe()`.
+- Register callbacks to process results.
+- Perform **banner analysis** and **CVE lookups** via `nvd.lookup()`.
+
+Example script usage:
+```bash
+./backend/scanner_runner ../scripts/example_scan.lua 127.0.0.1
