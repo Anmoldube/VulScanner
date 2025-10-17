@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run VulnScanner",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "program": "${C:\Users\jaamu\Downloads\vulnscanner_full_download}/build/Release/scanner_runner.exe",
+      "args": ["${C:\Users\jaamu\Downloads\vulnscanner_full_download}/scripts/example_scan.lua", "127.0.0.1"],
+      "cwd": "${C:\Users\jaamu\Downloads\vulnscanner_full_download}/build/Release",
+      "console": "integratedTerminal"
+    }
+  ]
+}

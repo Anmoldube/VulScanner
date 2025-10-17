@@ -1,0 +1,16 @@
+{
+  "OutputFoldersPerTargetSystem": {
+    "Local Machine": [
+      "out\\build\\GCC 6.3.0 mingw32",
+      "out\\install\\GCC 6.3.0 mingw32",
+      "out\\build\\Custom configure preset",
+      "out\\install\\Custom configure preset",
+      "out\\build\\debug",
+      "out\\build\\release"
+    ]
+  },
+  "ExpandedNodes": [
+    ""
+  ],
+  "PreviewInSolutionExplorer": false
+}

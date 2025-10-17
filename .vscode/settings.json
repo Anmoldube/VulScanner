@@ -1,0 +1,5 @@
+{
+  "cmake.configureOnOpen": false,
+  "cmake.buildDirectory": "${C:/Users/jaamu/Downloads/vulnscanner_full_download}/build",
+  "cmake.generator": "Ninja"
+}

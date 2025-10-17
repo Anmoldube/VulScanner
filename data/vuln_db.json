@@ -1,0 +1,10 @@
+{
+  "SSH": {
+    "cve": "CVE-2023-4567",
+    "description": "Example SSH vuln"
+  },
+  "HTTP": {
+    "cve": "CVE-2022-1234",
+    "description": "Example HTTP vuln"
+  }
+}
